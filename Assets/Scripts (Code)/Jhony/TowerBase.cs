@@ -23,7 +23,7 @@ public abstract class TowerBase : MonoBehaviour
 
     void Update()
     {
-        if (CurrentTarget == null) return;
+        if (!CurrentTarget) return;
 
         RotateTowardsTarget();
 
@@ -73,7 +73,7 @@ public abstract class TowerBase : MonoBehaviour
         Vector3 dir = CurrentTarget.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(turretPivot.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
-        turretPivot.rotation = Quaternion.Euler(0f, rotation.y, 0f); // Solo rota en Y
+        turretPivot.rotation = Quaternion.Euler(0f, rotation.z, 0f); 
     }
 
     /// <summary>
