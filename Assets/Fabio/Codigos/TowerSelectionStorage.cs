@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class TowerSelectionStorage
 {
-    public static List<TowerData> selectedTowers;
+    public static List<TowerData> selectedTowers = new List<TowerData>();
 }
 
 

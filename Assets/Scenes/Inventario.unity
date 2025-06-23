@@ -152,11 +152,12 @@ MonoBehaviour:
   selectedContainer: {fileID: 2025909083}
   towerButtonPrefab: {fileID: 3163479175306005584, guid: 13e7c65de08543c4fb768be726f41721, type: 3}
   maxSelectedTowers: 6
-  startButton: {fileID: 8409742283286466614, guid: 13e7c65de08543c4fb768be726f41721, type: 3}
+  startButton: {fileID: 553167343}
   allTowers:
   - {fileID: 11400000, guid: ad444bdd0d6ff9c49b575f50675a6191, type: 2}
   - {fileID: 11400000, guid: f713aa897aef84d4687010a4a3209607, type: 2}
   - {fileID: 11400000, guid: c98ba72786b53c24197a735a5ce2ebf2, type: 2}
+  - {fileID: 11400000, guid: ad892e65f5fd3294ca33020a3ae8493c, type: 2}
 --- !u!4 &279179756
 Transform:
   m_ObjectHideFlags: 0

@@ -40,23 +40,29 @@ public class TowerSelectionManager : MonoBehaviour
 
         selectedTowers.Add(tower);
 
-        TowerData currentTower = tower;  // VARIABLE TEMPORAL para el lambda
-        GameObject btn = Instantiate(towerButtonPrefab, selectedContainer);
-        btn.GetComponent<Image>().sprite = currentTower.icon;
+        TowerData currentTower = tower;
+        GameObject newBtn = Instantiate(towerButtonPrefab, selectedContainer);
+        newBtn.GetComponent<Image>().sprite = currentTower.icon;
 
-        btn.GetComponent<Button>().onClick.AddListener(() => {
+        
+        Button buttonComponent = newBtn.GetComponent<Button>();
+        buttonComponent.interactable = true;
+
+        buttonComponent.onClick.AddListener(() => {
             selectedTowers.Remove(currentTower);
-            Destroy(btn);
+            Destroy(newBtn);
+            startButton.interactable = selectedTowers.Count > 0;
         });
 
-        startButton.interactable = selectedTowers.Count > 0;
+        startButton.interactable = true;
     }
+
 
 
     void StartLevel()
     {
         TowerSelectionStorage.selectedTowers = new List<TowerData>(selectedTowers);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game1");
     }
 }
 
