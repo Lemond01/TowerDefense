@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - PlacementZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tile
   - Water
   - UI
   - 
