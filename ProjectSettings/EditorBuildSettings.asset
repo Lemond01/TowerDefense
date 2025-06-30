@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/SergioHdz/Scenes/LoadingScene.unity
     guid: 77b9540050ee50749a53b61c242739c8
   - enabled: 1
+    path: Assets/Scenes/Inventario.unity
+    guid: e86b7d61ad4212f4884067510d65e711
+  - enabled: 1
     path: Assets/SergioHdz/Scenes/GameScene.unity
     guid: b61e055efba3d0d4da43b412db3f17de
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/SergioHdz/Scenes/Credits.unity
+    guid: 30fddac87bc713449bb735ac975dbbac
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

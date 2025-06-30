@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Torre1
   icon: {fileID: -2502668579602530883, guid: 1a4d977cc43500f4ca97da90ee1aea93, type: 3}
-  towerPrefab: {fileID: 0}
+  towerPrefab: {fileID: 7408556348635613870, guid: b1d727b76cbd74040824fcd4ef8b2576, type: 3}
