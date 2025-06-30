@@ -5,29 +5,36 @@ public class Bullet : MonoBehaviour
     [Header("Bullet Settings")]
     public float speed = 20f;
     public float damage = 50f;
-    public float lifetime = 5f;
+    public float maxRange = 10f;
 
-    private Transform target;
+    private Transform _target;
+    private Vector3 _spawnPosition;
 
-    void Start()
+    void OnEnable()
     {
-        Destroy(gameObject, lifetime);
+        _spawnPosition = transform.position;
     }
 
-    public void Seek(Transform target)
+    public void Seek(Transform t)
     {
-        target = target;
+        _target = t;
     }
 
     void Update()
     {
-        if (target == null)
+        if (_target == null)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 
-        Vector3 dir = target.position - transform.position;
+        if (Vector3.Distance(_spawnPosition, transform.position) > maxRange)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
+        Vector3 dir = _target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame)
@@ -37,12 +44,12 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
+        transform.LookAt(_target);
     }
 
     void HitTarget()
     {
 
-       // Destroy(gameObject); 
+        gameObject.SetActive(false);
     }
 }

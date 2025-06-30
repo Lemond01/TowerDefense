@@ -6,6 +6,7 @@ public abstract class TowerBase : MonoBehaviour
     [Header("Tower Settings")]
     public float range = 5f;
     public float fireRate = 1f;
+    public int cost = 100;
     public Transform turretPivot;
     public Transform firePoint;
 
@@ -70,11 +71,15 @@ public abstract class TowerBase : MonoBehaviour
     /// </summary>
     void RotateTowardsTarget()
     {
-        Vector3 dir = CurrentTarget.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(turretPivot.rotation, lookRotation, Time.deltaTime * 10f).eulerAngles;
-        turretPivot.rotation = Quaternion.Euler(0f, rotation.z, 0f); 
+        Vector3 dir = CurrentTarget.position - turretPivot.position;
+        dir.y = 0f;
+        if (dir != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            turretPivot.rotation = Quaternion.Lerp(turretPivot.rotation, lookRotation, Time.deltaTime * 10f);
+        }
     }
+
 
     /// <summary>
     /// Método abstracto que se implementa en clases hijas
