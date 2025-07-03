@@ -242,8 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1b165178b44564c99c0406202596d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  cost: 0
+  towerData: {fileID: 0}
 --- !u!1 &8883491622829092712
 GameObject:
   m_ObjectHideFlags: 0
