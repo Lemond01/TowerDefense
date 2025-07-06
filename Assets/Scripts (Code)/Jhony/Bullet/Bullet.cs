@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public float damage = 50f;
     public float maxRange = 10f;
 
-    private Transform _target;
+    protected Transform _target;
     private Vector3 _spawnPosition;
 
     void OnEnable()
@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
         transform.LookAt(_target);
     }
 
-    void HitTarget()
+    protected virtual void HitTarget()
     {
 
         gameObject.SetActive(false);

@@ -9,6 +9,7 @@ public abstract class TowerBase : MonoBehaviour
     public int cost = 100;
     public Transform turretPivot;
     public Transform firePoint;
+    public ParticleSystem fireEffect;
 
     [Header("Targeting")]
     protected Transform CurrentTarget;
@@ -31,15 +32,14 @@ public abstract class TowerBase : MonoBehaviour
         if (FireCountdown <= 0f)
         {
             Fire();
+            PlayFireEffect();
             FireCountdown = 1f / fireRate;
         }
 
         FireCountdown -= Time.deltaTime;
     }
-
-    /// <summary>
+    
     /// Busca el enemigo más cercano dentro del rango
-    /// </summary>
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -65,10 +65,8 @@ public abstract class TowerBase : MonoBehaviour
             CurrentTarget = null;
         }
     }
-
-    /// <summary>
+    
     /// Gira la torreta para mirar al objetivo
-    /// </summary>
     void RotateTowardsTarget()
     {
         Vector3 dir = CurrentTarget.position - turretPivot.position;
@@ -80,15 +78,19 @@ public abstract class TowerBase : MonoBehaviour
         }
     }
 
-
-    /// <summary>
+    /// Activa el sistema de particulas
+    void PlayFireEffect()
+    {
+        if (fireEffect != null)
+        {
+            fireEffect.Play();
+        }
+    }
+    
     /// Método abstracto que se implementa en clases hijas
-    /// </summary>
     protected abstract void Fire();
-
-    /// <summary>
+    
     /// Método visual para mostrar el rango en la escena
-    /// </summary>
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
