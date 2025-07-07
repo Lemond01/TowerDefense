@@ -240,6 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconAlpha: 0.8
-  tileMask2D:
+  Tile:
     serializedVersion: 2
     m_Bits: 8
