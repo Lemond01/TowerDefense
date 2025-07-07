@@ -649,7 +649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 836, y: -341}
+  m_AnchoredPosition: {x: 836, y: -608}
   m_SizeDelta: {x: 134.7844, y: 133.1475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321833963
@@ -786,7 +786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 398}
+  m_AnchoredPosition: {x: 0, y: 131}
   m_SizeDelta: {x: 1986.5918, y: 315.2109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &349758498
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 1718923154}
   loadingBar: {fileID: 349758498}
   loadingText: {fileID: 321833963}
-  sceneToLoad: GameScene
+  sceneToLoad: TestGame
   fakeLoadTime: 4
 --- !u!1 &886188585
 GameObject:
@@ -1505,7 +1505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -197.99963, y: 0.00036621094}
+  m_AnchoredPosition: {x: -197.99963, y: -266.99963}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &931914509
@@ -1610,7 +1610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437, y: -121.83}
+  m_AnchoredPosition: {x: -620, y: -599}
   m_SizeDelta: {x: 750.91, y: 343.6571}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1076724514
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: loading...
+  m_text: Cargando...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1660,12 +1660,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 181.85
+  m_fontSize: 83.68
   m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 250
+  m_fontSizeMax: 83.68
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1742,10 +1742,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1076724513}
   - {fileID: 349758497}
   - {fileID: 321833962}
   - {fileID: 908778610}
+  - {fileID: 1076724513}
   - {fileID: 211059471}
   m_Father: {fileID: 1718923160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
