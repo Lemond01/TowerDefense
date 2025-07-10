@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc684f630b46554ab8b3ac0bfcd369c, type: 3}
+  m_Name: Torre2
+  m_EditorClassIdentifier: 
+  towerName: Torre 2
+  icon: {fileID: -1795761550131740583, guid: dd57c95f7a75099499e774915c8fb42d, type: 3}
+  towerPrefab: {fileID: 0}
