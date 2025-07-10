@@ -2255,7 +2255,7 @@ ScriptedImporter:
     - position: {x: 297, y: 176.181}
       boneWeight:
         weight0: 0.6
-        weight1: 0.4
+        weight1: 0.39999998
         weight2: 0
         weight3: 0
         boneIndex0: 0
@@ -2264,8 +2264,8 @@ ScriptedImporter:
         boneIndex3: 0
     - position: {x: 324.699, y: 219.803}
       boneWeight:
-        weight0: 0.41932493
-        weight1: 0.38067508
+        weight0: 0.4193249
+        weight1: 0.38067505
         weight2: 0.20000002
         weight3: 0
         boneIndex0: 2
@@ -3728,22 +3728,31 @@ ScriptedImporter:
     spriteBone:
     - name: Esquina_Capa_Izq
       guid: 0baf0616f9545cb46b4c7e4c85e20cc0
-      position: {x: 277.06616, y: 188.51068, z: 0}
-      rotation: {x: 0, y: 0, z: 0.77824587, w: -0.6279597}
-      length: 114.54933
-      parentId: -1
+      position: {x: 349.18787, y: 92.38394, z: 0}
+      rotation: {x: 0, y: 0, z: -0.08682777, w: 0.99622333}
+      length: 114.549355
+      parentId: 2
       color:
         serializedVersion: 2
         rgba: 4286643968
     - name: Esquina_Capa_Der
       guid: f167edc39ad2fbc47bea8385e36d7b08
-      position: {x: 62.21982, y: 190.02368, z: 0}
-      rotation: {x: 0, y: 0, z: 0.6528328, w: -0.7575021}
-      length: 102.49403
-      parentId: -1
+      position: {x: 356.0667, y: -122.357574, z: 0}
+      rotation: {x: 0, y: 0, z: 0.093475565, w: 0.9956216}
+      length: 102.49406
+      parentId: 2
       color:
         serializedVersion: 2
         rgba: 4294934528
+    - name: Capa_Inf
+      guid: abe551583f81bab438e0ceb88da07733
+      position: {x: 198.39001, y: 541.04016, z: 0}
+      rotation: {x: 0, y: 0, z: 0.72078234, w: -0.6931615}
+      length: 387.62384
+      parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278255488
     spriteOutline: []
     vertices:
     - position: {x: 212.072, y: 0.4500122}
@@ -4416,7 +4425,7 @@ ScriptedImporter:
         width: 384
         height: 592
       spriteId: 745a03ef9e640ae4fa0e696b947c4661
-      bones: 0800000009000000
+      bones: 080000000900000007000000
       parentGroup: 0
       order: 0
     dimension: {x: 0, y: 0}
