@@ -5,51 +5,56 @@ using TMPro;
 public class WaveProgressBar : MonoBehaviour
 {
     [Header("Referencias UI")]
-    public Slider waveSlider;          
-    public TMP_Text   waveText;            
+    public Slider waveSlider;
+    public TMP_Text waveText;
 
     [Header("Configuración oleadas")]
-    public int    totalWaves = 5;
+    public int totalWaves = 5;
 
     private int currentWave = 0;
-    private int enemiesRemaining = 0;
+    private bool waveInProgress = false;
 
     void Start()
     {
-       
-        NextWave();
+        StartNextWave();
     }
-    
-    public void NextWave()
+
+    void Update()
     {
-        currentWave++;
-        enemiesRemaining = CalculateEnemiesForWave(currentWave);
+        if (!waveInProgress) return;
 
-        waveSlider.maxValue = enemiesRemaining;
-        waveSlider.value    = enemiesRemaining;
+        
+        int enemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        waveSlider.value = enemiesAlive;
 
-        if (waveText)
-            waveText.text = $"Oleada {currentWave}/{totalWaves}";
-    }
-    
-    public void OnEnemyKilled()
-    {
-        enemiesRemaining = Mathf.Max(0, enemiesRemaining - 1);
-        waveSlider.value = enemiesRemaining;
-
-        if (enemiesRemaining == 0)
+        
+        if (enemiesAlive == 0)
         {
-           
+            waveInProgress = false;
             if (currentWave < totalWaves)
-                NextWave();
+                StartNextWave();
             else
                 EndAllWaves();
         }
     }
 
+    void StartNextWave()
+    {
+        currentWave++;
+        waveInProgress = true;
+
+        int spawnCount = CalculateEnemiesForWave(currentWave);
+        waveSlider.maxValue = spawnCount;
+        waveSlider.value    = spawnCount;
+
+        if (waveText != null)
+            waveText.text = $"Oleada {currentWave}/{totalWaves}";
+
+        
+    }
+
     private int CalculateEnemiesForWave(int wave)
     {
-       
         return wave * 5;
     }
 
@@ -59,4 +64,5 @@ public class WaveProgressBar : MonoBehaviour
        
     }
 }
+
 
