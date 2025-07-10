@@ -24,13 +24,13 @@ public class Bullet : MonoBehaviour
     {
         if (_target == null)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             return;
         }
 
         if (Vector3.Distance(_spawnPosition, transform.position) > maxRange)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             return;
         }
 
@@ -49,7 +49,6 @@ public class Bullet : MonoBehaviour
 
     protected virtual void HitTarget()
     {
-
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
