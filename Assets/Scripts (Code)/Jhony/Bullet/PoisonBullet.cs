@@ -10,9 +10,9 @@ public class PoisonBullet : Bullet
 
     protected override void HitTarget()
     {
-        if (_target != null)
+        if (Target != null)
         {
-            StartCoroutine(ApplyPoison(_target));
+            StartCoroutine(ApplyPoison(Target));
         }
 
         gameObject.SetActive(false);

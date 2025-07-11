@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float damage = 50f;
     public float maxRange = 10f;
 
-    protected Transform _target;
+    protected Transform Target;
     private Vector3 _spawnPosition;
 
     void OnEnable()
@@ -17,12 +18,12 @@ public class Bullet : MonoBehaviour
 
     public void Seek(Transform t)
     {
-        _target = t;
+        Target = t;
     }
 
     void Update()
     {
-        if (_target == null)
+        if (Target == null)
         {
             Destroy(gameObject);
             return;
@@ -34,7 +35,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Vector3 dir = _target.position - transform.position;
+        Vector3 dir = Target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame)
@@ -44,11 +45,21 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(_target);
+        transform.LookAt(Target);
     }
-
+    
     protected virtual void HitTarget()
     {
+        if (Target != null)
+        {
+            Enemy enemy = Target.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+        }
+
         Destroy(gameObject);
     }
+
 }

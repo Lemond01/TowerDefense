@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SergioHdz/Scenes/MainMenu.unity
+    path: Assets/Scripts (Code)/SergioHdz/Scenes/MainMenu.unity
     guid: 920a7a4f57cc91c4cacc72d742001c07
   - enabled: 1
-    path: Assets/SergioHdz/Scenes/LoadingScene.unity
+    path: Assets/Scripts (Code)/SergioHdz/Scenes/LoadingScene.unity
     guid: 77b9540050ee50749a53b61c242739c8
   - enabled: 1
     path: Assets/Scenes/Inventario.unity
@@ -17,14 +17,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo.unity
     guid: 4028650241100464693bc17b38c8f64e
-  - enabled: 0
-    path: Assets/SergioHdz/Scenes/GameScene.unity
+  - enabled: 1
+    path: Assets/Scripts (Code)/SergioHdz/Scenes/GameScene.unity
     guid: b61e055efba3d0d4da43b412db3f17de
   - enabled: 1
-    path: Assets/SergioHdz/Scenes/Credits.unity
+    path: Assets/Scripts (Code)/SergioHdz/Scenes/Credits.unity
     guid: 30fddac87bc713449bb735ac975dbbac
   - enabled: 0
-    path: Assets/SergioHdz/Scenes/TestGame.unity
+    path: Assets/Scripts (Code)/SergioHdz/Scenes/TestGame.unity
     guid: d2c47daa8248d1447bdeb1ef9698e278
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

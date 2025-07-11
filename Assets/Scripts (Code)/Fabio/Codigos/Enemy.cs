@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Estadísticas del Enemigo")]
+    [Header("Estadï¿½sticas del Enemigo")]
     [SerializeField] protected float _lifePoints = 100f;
     [SerializeField] protected float _speed = 2f;
     [SerializeField] protected float _damage = 10f;
 
-    [Header("Prefab del próximo enemigo para evolución")]
+    [Header("Prefab del prï¿½ximo enemigo para evoluciï¿½n")]
     [SerializeField] protected GameObject enemigoEvolucionado;
-
-    // Acceso público a las variables
+    
     public float LifePoints => _lifePoints;
     public float Speed => _speed;
     public float Damage => _damage;
@@ -25,11 +24,11 @@ public class Enemy : MonoBehaviour
     {
         _speed = nuevaVelocidad;
     }
-
-    public void RecibirDaño(float cantidad)
+    
+    public void TakeDamage(float amount)
     {
-        _lifePoints -= cantidad;
-        if (_lifePoints <= 0)
+        _lifePoints -= amount;
+        if (_lifePoints <= 0f)
         {
             Morir();
         }
