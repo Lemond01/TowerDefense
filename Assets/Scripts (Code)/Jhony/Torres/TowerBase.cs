@@ -6,7 +6,7 @@ public abstract class TowerBase : MonoBehaviour
     [Header("Tower Settings")]
     public float range = 5f;
     public float fireRate = 1f;
-    public int cost = 100;
+    //public int cost = 100;
     public Transform turretPivot;
     public Transform firePoint;
     public ParticleSystem fireEffect;
