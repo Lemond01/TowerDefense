@@ -14,14 +14,14 @@ public class TurretSlot : MonoBehaviour,
     public LayerMask Tile;
 
     // Internals
-    private TurretData turretData;
-    private Canvas canvas;
+    private TurretData   turretData;
+    private Canvas       canvas;
     private RectTransform canvasRect;
-    private GameObject dragIcon;
+    private GameObject   dragIcon;
 
     void Awake()
     {
-        canvas = GetComponentInParent<Canvas>();
+        canvas     = GetComponentInParent<Canvas>();
         canvasRect = canvas.GetComponent<RectTransform>();
         turretData = GetComponent<TurretData>();
         if (turretData == null)
@@ -32,15 +32,14 @@ public class TurretSlot : MonoBehaviour,
     {
         if (turretData == null || turretData.Prefab == null)
         {
-            Debug.LogError("TurretData o el Prefab de la torreta no están asignados.");
+            Debug.LogError("TurretData o Prefab no asignado.");
             return;
         }
 
-        // icono UI
         dragIcon = new GameObject("DragIcon");
         dragIcon.transform.SetParent(canvas.transform, false);
         var img = dragIcon.AddComponent<Image>();
-        img.sprite = turretData.Icon;
+        img.sprite        = turretData.Icon;
         img.raycastTarget = false;
         img.SetNativeSize();
         var c = img.color; c.a = iconAlpha; img.color = c;
@@ -55,69 +54,64 @@ public class TurretSlot : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData e)
     {
-        Debug.Log("OnEndDrag: Finalizó el arrastre. Intentando colocar la torreta.");
-
-        if (turretData == null) return;
-
-        // Destruimos el ícono de arrastre al inicio para que no interfiera
+        // Destruimos el icono de arrastre
         if (dragIcon != null)
             Destroy(dragIcon);
 
-        // Validamos que exista una cámara principal
+        if (turretData == null) return;
         if (Camera.main == null)
         {
-            Debug.LogError("No se encontró una cámara con el tag 'MainCamera' en la escena.");
+            Debug.LogError("No se encontró MainCamera.");
             return;
         }
 
-        // Raycast 3D desde la cámara
+        // Raycast 3D
         Ray ray = Camera.main.ScreenPointToRay(e.position);
         if (Physics.Raycast(ray, out RaycastHit hit, 200f, Tile))
         {
-            // Si el rayo golpea algo en la capa correcta, lo mostramos en consola.
-            Debug.Log("Raycast Hit: El rayo golpeó al objeto '" + hit.collider.name + "' en la capa correcta.");
-
             var tile = hit.collider.GetComponent<Tile>();
-            if (tile != null)
+            if (tile == null)
             {
-                Debug.Log("¡Éxito! Se encontró el componente 'Tile' en el objeto golpeado.");
-                if (!tile.hasturet)
-                {
-                    Debug.Log("La casilla está libre. Colocando torreta...");
-                    tile.hasturet = true;
+                Debug.LogError($"'{hit.collider.name}' está en capa Tile pero no tiene Tile.cs.");
+                return;
+            }
 
-                    // Instanciamos la torreta 3D como hija de la casilla
-                    var turretGO = Instantiate(
-                        turretData.Prefab,
-                        hit.collider.transform
-                    );
-                    turretGO.transform.localPosition = Vector3.zero;
-                    turretGO.transform.localRotation = Quaternion.identity;
-                    turretGO.transform.localScale = Vector3.one;
-                    Debug.Log("Torreta '" + turretGO.name + "' instanciada correctamente.");
-                }
-                else
-                {
-                    Debug.LogWarning("La casilla '" + tile.name + "' ya tiene una torreta.");
-                }
-            }
-            else
+            if (tile.hasturet)
             {
-                // El rayo golpeó un objeto en la capa correcta, pero no tiene el script 'Tile'.
-                Debug.LogError("Error: El objeto '" + hit.collider.name + "' está en la capa 'Tile' pero no tiene el componente 'Tile'.");
+                Debug.LogWarning($"La casilla '{tile.name}' ya tiene torreta.");
+                return;
             }
+
+            // Aquí gastamos: si no hay dinero, cancelamos
+            int cost = turretData.Cost;
+            if (!MoneyManager.Instance.Spend(cost))
+            {
+                Debug.LogWarning($"Fondos insuficientes (coste = {cost}).");
+                return;
+            }
+
+            // Marcamos la casilla y colocamos la torreta
+            tile.hasturet = true;
+
+            var turretGO = Instantiate(
+                turretData.Prefab,
+                hit.collider.transform   // lo hacemos hijo
+            );
+            turretGO.transform.localPosition = Vector3.zero;
+            turretGO.transform.localRotation = Quaternion.identity;
+            turretGO.transform.localScale    = Vector3.one;
+
+            Debug.Log($"Torreta '{turretGO.name}' colocada. Gastaste {cost}.");
         }
         else
         {
-            // El rayo no golpeó nada en la capa especificada.
-            Debug.LogWarning("Raycast Miss: El rayo no golpeó ningún objeto en la capa seleccionada (Tile).");
+            Debug.LogWarning("Raycast Miss: no golpeó ninguna casilla.");
         }
     }
 
     private void UpdateIconPosition(PointerEventData e)
     {
         if (dragIcon == null) return;
-        
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvasRect,
             e.position,

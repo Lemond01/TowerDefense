@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float _lifePoints = 100f;
     [SerializeField] public float _speed = 2f;
     [SerializeField] public float _damage = 10f;
+    
+    [Header("Recompensa al morir")]
+    [SerializeField] private int   reward = 10;
 
     public float LifePoints => _lifePoints;
     public float Speed => _speed;
@@ -33,6 +36,10 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Morir()
     {
+        
+        if (MoneyManager.Instance != null)
+            MoneyManager.Instance.Earn(reward);
+
         
         Destroy(gameObject);
     }
