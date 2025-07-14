@@ -1940,8 +1940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcf02f391da63249b4907348a6e7e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lifePoints: 100
+  _speed: 2
+  _damage: 10
   path: {fileID: 212945135}
-  moveSpeed: 2
   waypointDeCambio: {fileID: 570657099}
   modeloInicialPrefab: {fileID: 5633716011815356131, guid: 62dce79b681aed04993af6c5fc85a3c0, type: 3}
   modeloEvolucionadoPrefab: {fileID: 3285745573321998162, guid: 52f2c295e0a884d46b976b3e9179f588, type: 3}

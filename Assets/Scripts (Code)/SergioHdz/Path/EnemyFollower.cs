@@ -2,11 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyFollower : MonoBehaviour
+public class EnemyFollower : Enemy
 {
     [Header("Path")]
     public Path path;
-    public float moveSpeed = 2f;
+    //public float moveSpeed = 2f;
 
     [Header("Waypoint donde cambia el modelo")]
     public Transform waypointDeCambio;
@@ -53,7 +53,7 @@ public class EnemyFollower : MonoBehaviour
 
         Transform target = waypoints[currentIndex];
         Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * (moveSpeed * Time.deltaTime);
+        transform.position += direction * (Speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
