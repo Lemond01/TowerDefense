@@ -6,7 +6,6 @@ public class EnemyFollower : Enemy
 {
     [Header("Path")]
     public Path path;
-    //public float moveSpeed = 2f;
 
     [Header("Waypoint donde cambia el modelo")]
     public Transform waypointDeCambio;
