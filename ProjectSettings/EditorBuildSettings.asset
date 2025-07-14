@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scripts (Code)/SergioHdz/Scenes/Credits.unity
     guid: 30fddac87bc713449bb735ac975dbbac
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scripts (Code)/SergioHdz/Scenes/TestGame.unity
     guid: d2c47daa8248d1447bdeb1ef9698e278
   m_configObjects:
