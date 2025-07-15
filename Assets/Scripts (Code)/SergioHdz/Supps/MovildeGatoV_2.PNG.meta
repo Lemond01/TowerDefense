@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MovildeGatoV_2_0: -7123552908721174851
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
