@@ -9,6 +9,7 @@ public class TurretSlot : MonoBehaviour,
 {
     [Header("Arrastre UI")]
     [Range(0.2f, 1f)] public float iconAlpha = 0.8f;
+    [Range(0.1f, 1f)] public float iconScale  = 0.8f;  // escala del drag icon respecto al slot
 
     [Header("Map 3D")]
     public LayerMask Tile;
@@ -36,13 +37,24 @@ public class TurretSlot : MonoBehaviour,
             return;
         }
 
+        // Crea el icono flotante
         dragIcon = new GameObject("DragIcon");
         dragIcon.transform.SetParent(canvas.transform, false);
         var img = dragIcon.AddComponent<Image>();
         img.sprite        = turretData.Icon;
         img.raycastTarget = false;
-        img.SetNativeSize();
-        var c = img.color; c.a = iconAlpha; img.color = c;
+
+        // Ajusta el tamaño copiando el RectTransform del slot icon y aplicando escala
+        var slotRT = turretData.iconImage.rectTransform;
+        var drt    = dragIcon.GetComponent<RectTransform>();
+        drt.pivot     = slotRT.pivot;
+        drt.sizeDelta = slotRT.sizeDelta * iconScale;
+
+        // Transparencia
+        var c = img.color; 
+        c.a = iconAlpha; 
+        img.color = c;
+
         UpdateIconPosition(e);
     }
 
@@ -54,35 +66,19 @@ public class TurretSlot : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData e)
     {
-        // Destruimos el icono de arrastre
         if (dragIcon != null)
             Destroy(dragIcon);
 
-        if (turretData == null) return;
-        if (Camera.main == null)
-        {
-            Debug.LogError("No se encontró MainCamera.");
+        if (turretData == null || Camera.main == null)
             return;
-        }
 
-        // Raycast 3D
         Ray ray = Camera.main.ScreenPointToRay(e.position);
         if (Physics.Raycast(ray, out RaycastHit hit, 200f, Tile))
         {
             var tile = hit.collider.GetComponent<Tile>();
-            if (tile == null)
-            {
-                Debug.LogError($"'{hit.collider.name}' está en capa Tile pero no tiene Tile.cs.");
+            if (tile == null || tile.hasturet)
                 return;
-            }
 
-            if (tile.hasturet)
-            {
-                Debug.LogWarning($"La casilla '{tile.name}' ya tiene torreta.");
-                return;
-            }
-
-            // Aquí gastamos: si no hay dinero, cancelamos
             int cost = turretData.Cost;
             if (!MoneyManager.Instance.Spend(cost))
             {
@@ -90,22 +86,16 @@ public class TurretSlot : MonoBehaviour,
                 return;
             }
 
-            // Marcamos la casilla y colocamos la torreta
             tile.hasturet = true;
-
             var turretGO = Instantiate(
                 turretData.Prefab,
-                hit.collider.transform   // lo hacemos hijo
+                hit.collider.transform
             );
             turretGO.transform.localPosition = Vector3.zero;
             turretGO.transform.localRotation = Quaternion.identity;
             turretGO.transform.localScale    = Vector3.one;
 
             Debug.Log($"Torreta '{turretGO.name}' colocada. Gastaste {cost}.");
-        }
-        else
-        {
-            Debug.LogWarning("Raycast Miss: no golpeó ninguna casilla.");
         }
     }
 
