@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class WaveProgressBar : MonoBehaviour
+public class WaveProgress : MonoBehaviour
 {
     [Header("Referencias UI")]
     public Slider   waveSlider;
