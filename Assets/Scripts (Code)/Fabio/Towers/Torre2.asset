@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Torre2
   m_EditorClassIdentifier: 
   towerName: Torre 2
+  towerCost: 250
   icon: {fileID: -1795761550131740583, guid: dd57c95f7a75099499e774915c8fb42d, type: 3}
-  towerPrefab: {fileID: 0}
+  towerPrefab: {fileID: 5631810245618144619, guid: ec15dc7012c49ba48a93be86553e8c29, type: 3}
