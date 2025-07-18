@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 96d95e5653cac3a4c8fccf4d3dfcdb41
+guid: c1d6cbce6c6dda14a83a05bcd9e25899
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4528912117282870603
-    second: catsticker_0
+      213: -5815946624086674819
+    second: TXT_ Torre5_ BaseColor_ Alpha_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catsticker_0
+      name: TXT_ Torre5_ BaseColor_ Alpha_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 219
-        width: 996
-        height: 1019
+        x: 0
+        y: 0
+        width: 512
+        height: 511
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b459b91539de9de30800000000000000
-      internalID: 4528912117282870603
+      spriteID: d727eae0c5b994fa0800000000000000
+      internalID: -5815946624086674819
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      catsticker_0: 4528912117282870603
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
