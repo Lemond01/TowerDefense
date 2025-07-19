@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TXT_ Villa_ BaseColor_0: -5507280958818228766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

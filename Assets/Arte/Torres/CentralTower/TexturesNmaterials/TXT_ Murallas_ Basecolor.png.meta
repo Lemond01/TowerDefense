@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TXT_ Murallas_ Basecolor_0: 1084567042500040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

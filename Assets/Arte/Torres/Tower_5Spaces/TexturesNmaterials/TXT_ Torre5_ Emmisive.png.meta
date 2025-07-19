@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TXT_ Torre5_ Emmisive_0: -3886432252043760614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
