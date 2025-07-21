@@ -8,6 +8,8 @@ public class TowerData : ScriptableObject
     public int towerCost;
     public Sprite icon;
     public GameObject towerPrefab;
+    
+    public Material  placementMaterial;
 }
 
 

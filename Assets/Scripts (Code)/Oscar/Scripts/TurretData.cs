@@ -20,4 +20,7 @@ public class TurretData : MonoBehaviour
     public Sprite    Icon   => data != null ? data.icon: null;
     public int       Cost   => data != null ? data.towerCost: 0;
     public GameObject Prefab => data != null ? data.towerPrefab: null;
+    
+    public Material PlacementMaterial => data != null ? data.placementMaterial : null;
+    
 }

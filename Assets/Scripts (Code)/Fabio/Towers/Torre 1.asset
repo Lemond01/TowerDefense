@@ -16,3 +16,4 @@ MonoBehaviour:
   towerCost: 100
   icon: {fileID: 2526940678033239174, guid: dadb80e34798db942b54cbb830114c4d, type: 3}
   towerPrefab: {fileID: 6463810095855936868, guid: 2a1b54b6bda44924d94f0131318fa345, type: 3}
+  placementMaterial: {fileID: 2100000, guid: 5a5ac18779349e54581cf6b59be83cb5, type: 2}

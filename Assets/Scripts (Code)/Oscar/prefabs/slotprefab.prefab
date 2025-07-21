@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconAlpha: 0.8
-  iconScale: 0.8
-  Tile:
+  iconScale: 1
+  tileLayer:
     serializedVersion: 2
     m_Bits: 8
