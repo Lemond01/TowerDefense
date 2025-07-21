@@ -10,20 +10,24 @@ public class PoisonBullet : Bullet
 
     protected override void HitTarget()
     {
+        base.HitTarget();
         if (Target != null)
         {
             StartCoroutine(ApplyPoison(Target));
         }
-
-        gameObject.SetActive(false);
     }
 
     private IEnumerator ApplyPoison(Transform enemy)
     {
         float timer = 0f;
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+
         while (timer < poisonDuration)
         {
-            // enemy.GetComponent<Enemy>()?.ApplyDamage(poisonTickDamage);
+            if (enemyScript != null)
+            {
+                enemyScript.TakeDamage(poisonTickDamage);
+            }
             timer += tickInterval;
             yield return new WaitForSeconds(tickInterval);
         }

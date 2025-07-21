@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerName: Torre Arqueros
   towerCost: 150
-  icon: {fileID: -1795761550131740583, guid: dd57c95f7a75099499e774915c8fb42d, type: 3}
+  icon: {fileID: 3042783374461114738, guid: 279af1188825ca647901a695c2712680, type: 3}
   towerPrefab: {fileID: 9102839746553943234, guid: ce1565e3c7c6e2e4a96d63f6e8d9c897, type: 3}
   placementMaterial: {fileID: 0}

@@ -1,23 +1,26 @@
 using UnityEngine;
-using System.Collections;
 
-// Bala explosiva
 public class ExplosiveBullet : Bullet
 {
     public float explosionRadius = 3f;
 
     protected override void HitTarget()
     {
+        base.HitTarget();
+        
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-
-        foreach (Collider collider in colliders)
+        foreach (Collider nearbyObject in colliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (nearbyObject.CompareTag("Enemy") && nearbyObject.transform != Target)
             {
-                // Aquí deberías tener un  método ApplyDamage checarlo con Fabio
+                Enemy enemy = nearbyObject.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                }
             }
         }
 
-        gameObject.SetActive(false);
+        // Agregar VFX
     }
 }
