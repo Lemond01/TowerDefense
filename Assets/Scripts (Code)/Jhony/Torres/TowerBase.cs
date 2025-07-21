@@ -6,10 +6,8 @@ public abstract class TowerBase : MonoBehaviour
     [Header("Tower Settings")]
     public float range = 5f;
     public float fireRate = 1f;
-    //public int cost = 100;
     public Transform turretPivot;
     public Transform firePoint;
-    public ParticleSystem fireEffect;
 
     [Header("Targeting")]
     protected Transform CurrentTarget;
@@ -17,6 +15,18 @@ public abstract class TowerBase : MonoBehaviour
 
     [Header("Detection")]
     public string enemyTag = "Enemy";
+
+    [Header("Effects")]
+    public ParticleSystem fireEffect;
+
+    [Header("Rotation Settings")]
+    [SerializeField] private float LookAtRotationSharpness = 5f;
+    [SerializeField] private float AimRotationSharpness = 20f;
+    [SerializeField] private bool mustShoot = false;
+    [SerializeField] private Quaternion m_RotationWeaponForwardToPivot = Quaternion.identity;
+
+    private Quaternion m_PreviousPivotAimingRotation = Quaternion.identity;
+    private Quaternion m_PivotAimingRotation;
 
     void Start()
     {
@@ -69,13 +79,20 @@ public abstract class TowerBase : MonoBehaviour
     /// Gira la torreta para mirar al objetivo
     void RotateTowardsTarget()
     {
-        Vector3 dir = CurrentTarget.position - turretPivot.position;
-        dir.y = 0f;
-        if (dir != Vector3.zero)
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(dir);
-            turretPivot.rotation = Quaternion.Lerp(turretPivot.rotation, lookRotation, Time.deltaTime * 10f);
-        }
+        if (CurrentTarget == null) return;
+
+        Vector3 directionToTarget = (CurrentTarget.position - turretPivot.position).normalized;
+        directionToTarget.y = 0f;
+
+        if (directionToTarget == Vector3.zero) return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget) * m_RotationWeaponForwardToPivot;
+
+        float sharpness = mustShoot ? AimRotationSharpness : LookAtRotationSharpness;
+        m_PivotAimingRotation = Quaternion.Slerp(m_PreviousPivotAimingRotation, targetRotation, sharpness * Time.deltaTime);
+
+        turretPivot.rotation = m_PivotAimingRotation;
+        m_PreviousPivotAimingRotation = m_PivotAimingRotation;
     }
 
     /// Activa el sistema de particulas
@@ -86,8 +103,6 @@ public abstract class TowerBase : MonoBehaviour
             fireEffect.Play();
         }
     }
-    
-    /// Método abstracto que se implementa en clases hijas
     protected abstract void Fire();
     
     /// Método visual para mostrar el rango en la escena

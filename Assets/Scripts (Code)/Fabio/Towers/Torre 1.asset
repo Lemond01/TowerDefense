@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc684f630b46554ab8b3ac0bfcd369c, type: 3}
   m_Name: Torre 1
   m_EditorClassIdentifier: 
-  towerName: Torre1
-  towerCost: 100
-  icon: {fileID: 2526940678033239174, guid: dadb80e34798db942b54cbb830114c4d, type: 3}
-  towerPrefab: {fileID: 6463810095855936868, guid: 2a1b54b6bda44924d94f0131318fa345, type: 3}
+  towerName: "TorreCa\xF1on"
+  towerCost: 200
+  icon: {fileID: -1795761550131740583, guid: dd57c95f7a75099499e774915c8fb42d, type: 3}
+  towerPrefab: {fileID: 5189282242871442261, guid: 41b0cb24d0decf049a433948e5141d75, type: 3}
   placementMaterial: {fileID: 2100000, guid: 5a5ac18779349e54581cf6b59be83cb5, type: 2}

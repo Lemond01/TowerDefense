@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc684f630b46554ab8b3ac0bfcd369c, type: 3}
   m_Name: Torre2
   m_EditorClassIdentifier: 
-  towerName: Torre 2
-  towerCost: 250
+  towerName: Torre Arqueros
+  towerCost: 150
   icon: {fileID: -1795761550131740583, guid: dd57c95f7a75099499e774915c8fb42d, type: 3}
-  towerPrefab: {fileID: 5631810245618144619, guid: ec15dc7012c49ba48a93be86553e8c29, type: 3}
+  towerPrefab: {fileID: 9102839746553943234, guid: ce1565e3c7c6e2e4a96d63f6e8d9c897, type: 3}
+  placementMaterial: {fileID: 0}
