@@ -15152,7 +15152,7 @@ MonoBehaviour:
   turretPivot: {fileID: 8030624227400638474}
   firePoint: {fileID: 7573759155549395904}
   enemyTag: Enemy
-  fireEffect: {fileID: 2903083386752531645, guid: c2892297c7a6c7049a8b7ad239d47476, type: 3}
+  fireEffect: {fileID: 2509269746314572468}
   visualFireEffect: {fileID: 0}
   lookAtRotationSharpness: 5
   aimRotationSharpness: 20
