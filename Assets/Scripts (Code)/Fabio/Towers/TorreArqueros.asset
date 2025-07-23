@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc684f630b46554ab8b3ac0bfcd369c, type: 3}
-  m_Name: Torre4
+  m_Name: TorreArqueros
   m_EditorClassIdentifier: 
-  towerName: Torre4
-  towerCost: 350
-  icon: {fileID: -3757586537886536452, guid: c1046d102457dd74cad906b5184ac298, type: 3}
-  towerPrefab: {fileID: 7144475302600614596, guid: 7b7220376182da344a5e649abbce42cf, type: 3}
+  towerName: Torre Arqueros
+  towerCost: 250
+  icon: {fileID: 3042783374461114738, guid: 279af1188825ca647901a695c2712680, type: 3}
+  towerPrefab: {fileID: 9102839746553943234, guid: ce1565e3c7c6e2e4a96d63f6e8d9c897, type: 3}
   placementMaterial: {fileID: 0}

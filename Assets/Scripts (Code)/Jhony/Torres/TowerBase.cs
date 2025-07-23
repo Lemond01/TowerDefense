@@ -48,10 +48,10 @@ public abstract class TowerBase : MonoBehaviour
             return;
         }
         RotateTowardsTarget();
-        if (animator) animator.SetBool(KAnimIsActiveParameter, true);
         if (FireCountdown <= 0f)
         {
             Fire();
+            if (animator) animator.SetTrigger(KAnimIsActiveParameter);
             PlayFireEffect();
             FireCountdown = 1f / fireRate;
         }

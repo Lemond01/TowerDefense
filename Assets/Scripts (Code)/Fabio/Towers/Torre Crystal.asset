@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc684f630b46554ab8b3ac0bfcd369c, type: 3}
-  m_Name: Torre3
+  m_Name: Torre Crystal
   m_EditorClassIdentifier: 
   towerName: Torre Crystal
   towerCost: 500

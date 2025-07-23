@@ -264,7 +264,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e2e78e8f4cf766845ab5b8fb92a1295f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2e78e8f4cf766845ab5b8fb92a1295f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -346,15 +346,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 8
-  fireRate: 1
+  fireRate: 2
   turretPivot: {fileID: 4563732508152637309}
   firePoint: {fileID: 2422186880860946933}
   enemyTag: Enemy
   fireEffect: {fileID: 2903083386752531645, guid: c2892297c7a6c7049a8b7ad239d47476, type: 3}
-  LookAtRotationSharpness: 2
-  AimRotationSharpness: 10
-  mustShoot: 0
-  m_RotationWeaponForwardToPivot: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+  visualFireEffect: {fileID: 0}
+  lookAtRotationSharpness: 2
+  aimRotationSharpness: 10
+  mustShoot: 1
+  mRotationWeaponForwardToPivot: {x: -0.7010574, y: 0.09229597, z: 0.09229597, w: 0.7010574}
+  animator: {fileID: 0}
   firePoints:
   - {fileID: 6257629673337410541}
   - {fileID: 7171106403680845516}

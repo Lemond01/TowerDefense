@@ -317,8 +317,9 @@ MonoBehaviour:
   enemyTag: Enemy
   fireEffect: {fileID: 0}
   visualFireEffect: {fileID: 1116260472536444651}
-  LookAtRotationSharpness: 5
-  AimRotationSharpness: 20
+  lookAtRotationSharpness: 5
+  aimRotationSharpness: 20
   mustShoot: 1
-  m_RotationWeaponForwardToPivot: {x: -0.5609855, y: 0.43045932, z: 0.43045932, w: 0.5609855}
+  mRotationWeaponForwardToPivot: {x: 0.49999997, y: -0.49999997, z: -0.49999997, w: -0.49999997}
+  animator: {fileID: 0}
   bulletPrefab: {fileID: 4053112637018376201, guid: 4022c60049b2a5e488be80936d94a9ea, type: 3}
