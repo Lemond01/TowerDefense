@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 5755695565481031092}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0033, y: -0, z: 0.004}
+  m_LocalPosition: {x: -0.003299999, y: 0, z: 0.00400001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,11 +41,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0715588
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.4389496
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -65,11 +65,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 956834edb8def5f4dafb363319a73ecb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -117,16 +117,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
-  fireRate: 2
+  fireRate: 1
   turretPivot: {fileID: 7410389614127243357}
   firePoint: {fileID: 3965255713634554978}
   enemyTag: Enemy
   fireEffect: {fileID: 8950624839484268202, guid: 2e8b4c063ddae1741b33886ece0268ea, type: 3}
+  visualFireEffect: {fileID: 0}
   LookAtRotationSharpness: 5
   AimRotationSharpness: 20
   mustShoot: 1
   m_RotationWeaponForwardToPivot: {x: 0.45451948, y: -0.5416752, z: -0.5416752, w: -0.45451948}
-  bulletPrefab: {fileID: 2023497692606095207, guid: 1150bcc3e9b146d42a8a91227a80b3c7, type: 3}
+  bulletPrefab: {fileID: 6641585023582214101, guid: 88c51b3ae9a33da419920bfa5af6d11b, type: 3}
 --- !u!1001 &7015560844086937526
 PrefabInstance:
   m_ObjectHideFlags: 0

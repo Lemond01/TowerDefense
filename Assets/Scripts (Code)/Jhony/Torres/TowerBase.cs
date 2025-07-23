@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
+using UnityEngine.VFX;
 
 public abstract class TowerBase : MonoBehaviour
 {
@@ -18,34 +20,41 @@ public abstract class TowerBase : MonoBehaviour
 
     [Header("Effects")]
     public ParticleSystem fireEffect;
-
+    public VisualEffect visualFireEffect;
+    
     [Header("Rotation Settings")]
-    [SerializeField] private float LookAtRotationSharpness = 5f;
-    [SerializeField] private float AimRotationSharpness = 20f;
+    [SerializeField] private float lookAtRotationSharpness = 5f;
+    [SerializeField] private float aimRotationSharpness = 20f;
     [SerializeField] private bool mustShoot = false;
-    [SerializeField] private Quaternion m_RotationWeaponForwardToPivot = Quaternion.identity;
+    [SerializeField] private Quaternion mRotationWeaponForwardToPivot = Quaternion.identity;
 
-    private Quaternion m_PreviousPivotAimingRotation = Quaternion.identity;
-    private Quaternion m_PivotAimingRotation;
+    private Quaternion _mPreviousPivotAimingRotation = Quaternion.identity;
+    private Quaternion _mPivotAimingRotation;
+    
+   public Animator animator;
+   private static readonly int KAnimIsActiveParameter = Animator.StringToHash("IsActive");
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
 
     void Update()
     {
-        if (!CurrentTarget) return;
-
+        if (!CurrentTarget)
+        {
+            if (animator) animator.SetBool(KAnimIsActiveParameter, false);
+            return;
+        }
         RotateTowardsTarget();
-
+        if (animator) animator.SetBool(KAnimIsActiveParameter, true);
         if (FireCountdown <= 0f)
         {
             Fire();
             PlayFireEffect();
             FireCountdown = 1f / fireRate;
         }
-
         FireCountdown -= Time.deltaTime;
     }
     
@@ -86,13 +95,13 @@ public abstract class TowerBase : MonoBehaviour
 
         if (directionToTarget == Vector3.zero) return;
 
-        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget) * m_RotationWeaponForwardToPivot;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget) * mRotationWeaponForwardToPivot;
 
-        float sharpness = mustShoot ? AimRotationSharpness : LookAtRotationSharpness;
-        m_PivotAimingRotation = Quaternion.Slerp(m_PreviousPivotAimingRotation, targetRotation, sharpness * Time.deltaTime);
+        float sharpness = mustShoot ? aimRotationSharpness : lookAtRotationSharpness;
+        _mPivotAimingRotation = Quaternion.Slerp(_mPreviousPivotAimingRotation, targetRotation, sharpness * Time.deltaTime);
 
-        turretPivot.rotation = m_PivotAimingRotation;
-        m_PreviousPivotAimingRotation = m_PivotAimingRotation;
+        turretPivot.rotation = _mPivotAimingRotation;
+        _mPreviousPivotAimingRotation = _mPivotAimingRotation;
     }
 
     /// Activa el sistema de particulas
@@ -101,8 +110,31 @@ public abstract class TowerBase : MonoBehaviour
         if (fireEffect != null)
         {
             fireEffect.Play();
+            Invoke(nameof(StopParticleEffect), 1f);
+        }
+        else if (visualFireEffect != null)
+        {
+            visualFireEffect.Play();
+            Invoke(nameof(StopVisualEffect), 1f);
         }
     }
+    
+    void StopParticleEffect()
+    {
+        if (fireEffect != null)
+        {
+            fireEffect.Stop();
+        }
+    }
+
+    void StopVisualEffect()
+    {
+        if (visualFireEffect != null)
+        {
+            visualFireEffect.Stop();
+        }
+    }
+    
     protected abstract void Fire();
     
     /// Método visual para mostrar el rango en la escena

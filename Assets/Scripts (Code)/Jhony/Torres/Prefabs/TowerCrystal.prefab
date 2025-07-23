@@ -225,52 +225,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b07e499d13ec264b934a479efe64de8, type: 3}
       insertIndex: 4
       addedObject: {fileID: 3367716219915347652}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b07e499d13ec264b934a479efe64de8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4414093617435119059}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b07e499d13ec264b934a479efe64de8, type: 3}
---- !u!1 &3791033889371590188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b07e499d13ec264b934a479efe64de8, type: 3}
-  m_PrefabInstance: {fileID: 4061434245195445117}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4414093617435119059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3791033889371590188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25c5fa250f6740740b03282494421a8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 8
-  fireRate: 1
-  turretPivot: {fileID: 6013603228744253967}
-  firePoint: {fileID: 3749761243991618620}
-  enemyTag: Enemy
-  fireEffect: {fileID: 8950624839484268202, guid: 2e8b4c063ddae1741b33886ece0268ea, type: 3}
-  LookAtRotationSharpness: 5
-  AimRotationSharpness: 20
-  mustShoot: 1
-  m_RotationWeaponForwardToPivot: {x: 0, y: 0, z: 0, w: 1}
-  firePoints:
-  - {fileID: 3749761243991618620}
-  - {fileID: 3157598301663485950}
-  - {fileID: 3688167712692322762}
-  - {fileID: 975407619044364645}
-  - {fileID: 3367716219915347652}
-  bulletPrefab: {fileID: 3897300048773961946, guid: 3d70c7c482df7514495a2b898903286d, type: 3}
 --- !u!4 &4600327582440117398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b07e499d13ec264b934a479efe64de8, type: 3}
-  m_PrefabInstance: {fileID: 4061434245195445117}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6013603228744253967 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7721844508468097394, guid: 8b07e499d13ec264b934a479efe64de8, type: 3}
   m_PrefabInstance: {fileID: 4061434245195445117}
   m_PrefabAsset: {fileID: 0}
