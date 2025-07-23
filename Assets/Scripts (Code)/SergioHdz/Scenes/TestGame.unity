@@ -2407,10 +2407,12 @@ MonoBehaviour:
   reward: 10
   path: {fileID: 212945135}
   waypointDeCambio: {fileID: 570657099}
+  waypointDeAtaque: {fileID: 8548319241151322065, guid: f3f78859b1246a94aaf8c0884715c380, type: 3}
   modeloInicialPrefab: {fileID: 5633716011815356131, guid: 62dce79b681aed04993af6c5fc85a3c0, type: 3}
   modeloEvolucionadoPrefab: {fileID: 3285745573321998162, guid: 52f2c295e0a884d46b976b3e9179f588, type: 3}
   tiempoDeEvolucion: 1.5
   materialBrillante: {fileID: -876546973899608171, guid: 8412d704ace05ea4cbe6ff96ad2c36ca, type: 3}
+  animator: {fileID: 0}
 --- !u!4 &2028280684
 Transform:
   m_ObjectHideFlags: 0

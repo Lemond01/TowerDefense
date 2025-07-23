@@ -80,9 +80,12 @@ MonoBehaviour:
   _lifePoints: 100
   _speed: 2
   _damage: 10
+  reward: 10
   path: {fileID: 0}
   waypointDeCambio: {fileID: 0}
+  waypointDeAtaque: {fileID: 0}
   modeloInicialPrefab: {fileID: 0}
   modeloEvolucionadoPrefab: {fileID: 0}
   tiempoDeEvolucion: 1.5
   materialBrillante: {fileID: 0}
+  animator: {fileID: 0}
