@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Michi_Aprendiz_UNIDO
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -81,11 +85,13 @@ MonoBehaviour:
   _speed: 2
   _damage: 10
   reward: 10
+  animator: {fileID: 0}
   path: {fileID: 0}
   waypointDeCambio: {fileID: 0}
-  waypointDeAtaque: {fileID: 0}
+  waypointDeAtaque: {fileID: 8548319241151322065, guid: f3f78859b1246a94aaf8c0884715c380, type: 3}
   modeloInicialPrefab: {fileID: 0}
   modeloEvolucionadoPrefab: {fileID: 0}
   tiempoDeEvolucion: 1.5
   materialBrillante: {fileID: 0}
-  animator: {fileID: 0}
+  deathParticles: {fileID: 0}
+  deathSound: {fileID: 0}
