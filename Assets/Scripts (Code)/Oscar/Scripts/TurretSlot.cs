@@ -8,10 +8,11 @@ public class TurretSlot : MonoBehaviour,
                           IEndDragHandler
 {
     [Header("Arrastre UI")]
-    [Range(0.2f,1f)] public float iconAlpha = 0.8f;
-    [Range(0.1f,1f)] public float iconScale = 0.8f;
+    [Range(0.2f, 1f)] public float iconAlpha = 0.8f;
+    [Range(0.1f, 1f)] public float iconScale = 0.8f;
 
-    [Header("Tiles 3D")]
+    [Header("Map 3D (Tiles)")]
+    
     public LayerMask tileLayer;
 
     private TurretData   turretData;
@@ -32,20 +33,18 @@ public class TurretSlot : MonoBehaviour,
     {
         if (turretData?.Prefab == null) return;
 
-        // crea icono UI
         dragIcon = new GameObject("DragIcon");
-        dragIcon.transform.SetParent(canvas.transform,false);
+        dragIcon.transform.SetParent(canvas.transform, false);
         var img = dragIcon.AddComponent<Image>();
         img.sprite        = turretData.Icon;
         img.raycastTarget = false;
 
-        // tamaño y transparencia
         var slotRT = turretData.iconImage.rectTransform;
         var drt    = dragIcon.GetComponent<RectTransform>();
         drt.pivot     = slotRT.pivot;
         drt.sizeDelta = slotRT.sizeDelta * iconScale;
-        var c = img.color; c.a = iconAlpha; img.color = c;
 
+        var c = img.color; c.a = iconAlpha; img.color = c;
         UpdateIconPosition(e);
     }
 
@@ -57,52 +56,61 @@ public class TurretSlot : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData e)
     {
-        // destruye icono
         if (dragIcon != null) Destroy(dragIcon);
         if (turretData?.Prefab == null || Camera.main == null) return;
 
-        // raycast al collider hijo
-        Ray ray = Camera.main.ScreenPointToRay(e.position);
+        // Lanza un rayo desde la cámara.
+        var ray = Camera.main.ScreenPointToRay(e.position);
         if (!Physics.Raycast(ray, out RaycastHit hit, 200f, tileLayer))
             return;
+        
+        GameObject cubeObject = hit.collider.gameObject;
 
-        // localiza Tile en padres (position3D)
-        var tile = hit.collider.GetComponentInParent<Tile>();
-        if (tile == null || tile.hasturet) return;
-
-        // gastar dinero
-        if (!MoneyManager.Instance.Spend(turretData.Cost))
+       
+        Transform position3DTransform = cubeObject.transform.parent;
+        if (position3DTransform == null)
         {
-            Debug.Log("TurretSlot: fondos insuficientes.");
+            Debug.LogError($"El objeto '{cubeObject.name}' no tiene un padre. No se puede encontrar 'position3D'.");
             return;
         }
-        tile.hasturet = true;
 
-        // highlight
-        var mr = tile.GetComponent<MeshRenderer>();
-        if (mr != null && turretData.PlacementMaterial != null)
-            mr.material = turretData.PlacementMaterial;
+       
+        if (cubeObject.transform.childCount > 0)
+        {
+            Debug.Log("TurretSlot: Este espacio ya está ocupado.");
+            return;
+        }
 
-        // spawn en centro del collider
-        Vector3 spawnWorldPos = hit.collider.bounds.center;
+        
+        int cost = turretData.Cost;
+        if (!MoneyManager.Instance.Spend(cost))
+        {
+            Debug.Log("TurretSlot: Dinero insuficiente.");
+            return;
+        }
 
-        // instanciar como hijo de position3D sin conservar posición mundial
-        var go = Instantiate(turretData.Prefab, tile.transform, false);
+        
+        var position3DRenderer = position3DTransform.GetComponent<MeshRenderer>();
+        if (position3DRenderer != null && turretData.PlacementMaterial != null)
+        {
+            position3DRenderer.material = turretData.PlacementMaterial;
+        }
+        else
+        {
+            Debug.LogWarning($"El padre '{position3DTransform.name}' no tiene MeshRenderer o falta el PlacementMaterial.");
+        }
 
-        // calcular posición local exacta
-        Vector3 localPos = tile.transform.InverseTransformPoint(spawnWorldPos);
-        go.transform.localPosition = localPos + turretData.SpawnLocalPosition;
-
-        // aplicar rotación y escala específicas
-        go.transform.localEulerAngles = turretData.SpawnLocalEuler;
-        go.transform.localScale       = turretData.SpawnLocalScale;
+        
+        var turretGO = Instantiate(turretData.Prefab, cubeObject.transform);
+        turretGO.transform.localPosition = Vector3.zero;
+        turretGO.transform.localRotation = Quaternion.identity;
     }
 
     private void UpdateIconPosition(PointerEventData e)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect, e.position, e.pressEventCamera, out Vector2 lp);
+            canvasRect, e.position, e.pressEventCamera, out Vector2 lp
+        );
         dragIcon.GetComponent<RectTransform>().localPosition = lp;
     }
 }
-

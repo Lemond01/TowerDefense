@@ -17,6 +17,3 @@ MonoBehaviour:
   icon: {fileID: -3757586537886536452, guid: c1046d102457dd74cad906b5184ac298, type: 3}
   towerPrefab: {fileID: 7144475302600614596, guid: 7b7220376182da344a5e649abbce42cf, type: 3}
   placementMaterial: {fileID: 0}
-  spawnLocalPosition: {x: 0.4299999, y: 0, z: -0.03}
-  spawnLocalEuler: {x: 0, y: 0, z: 0}
-  spawnLocalScale: {x: 0.4, y: 0.4, z: 0.4}
