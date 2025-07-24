@@ -23,4 +23,8 @@ public class TurretData : MonoBehaviour
     
     public Material PlacementMaterial => data != null ? data.placementMaterial : null;
     
+    public Vector3   SpawnLocalPosition => data != null ? data.spawnLocalPosition : Vector3.zero;
+    public Vector3   SpawnLocalEuler    => data != null ? data.spawnLocalEuler    : Vector3.zero;
+    public Vector3   SpawnLocalScale    => data != null ? data.spawnLocalScale    : Vector3.one;
+    
 }

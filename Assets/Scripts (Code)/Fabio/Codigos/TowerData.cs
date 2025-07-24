@@ -10,6 +10,11 @@ public class TowerData : ScriptableObject
     public GameObject towerPrefab;
     
     public Material  placementMaterial;
+    
+    [Header("Offset Local de Colocación")]
+    public Vector3 spawnLocalPosition;    // pequeño ajuste en XYZ
+    public Vector3 spawnLocalEuler;       // rotación específica para esta torre
+    public Vector3 spawnLocalScale = Vector3.one;  // escala local deseada
 }
 
 
