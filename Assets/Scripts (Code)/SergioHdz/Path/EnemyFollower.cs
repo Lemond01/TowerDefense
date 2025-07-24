@@ -4,37 +4,37 @@ using System.Collections.Generic;
 
 public class EnemyFollower : Enemy
 {
-    [Header("Path")]
+    [Header("Path Settings")]
     public Path path;
-
-    [Header("Waypoint donde cambia el modelo")]
     public Transform waypointDeCambio;
+    public Transform waypointDeAtaque;
 
-    [Header("Waypoint donde ataca")]
-    public Transform waypointDeAtaque; // Nuevo: punto donde comenzará a atacar
-
-    [Header("Modelos")]
+    [Header("Model Settings")]
     public GameObject modeloInicialPrefab;
     public GameObject modeloEvolucionadoPrefab;
 
-    [Header("Efectos")]
+    [Header("Evolution Effects")]
     public float tiempoDeEvolucion = 1.5f;
     public Material materialBrillante;
     private Material[] materialesOriginales;
     private Renderer modeloRenderer;
 
-    [Header("Animaciones")]
-    public Animator animator; // Referencia al Animator
+    [Header("Death Effects")]
+    public ParticleSystem deathParticles;
+    public AudioClip deathSound;
 
     private List<Transform> waypoints;
     private int currentIndex = 0;
     private bool esperandoCambio = false;
-    private bool haLlegadoAlAtaque = false; // Nuevo: controla si llegó al punto de ataque
-
+    private bool haLlegadoAlAtaque = false;
     private GameObject instanciaActual;
 
-    private void Start()
+    // Cambiado a override para reemplazar el Start de Enemy
+    protected override void Start()
     {
+        // Primero llama al Start de la clase base
+        base.Start();
+
         if (path == null || waypointDeCambio == null)
         {
             Debug.LogError("[EnemyFollower] Asigna el path y el waypoint de cambio.");
@@ -44,14 +44,13 @@ public class EnemyFollower : Enemy
 
         waypoints = path.GetWaypoints();
 
-        // Instanciamos el modelo inicial
         if (modeloInicialPrefab != null)
         {
             instanciaActual = Instantiate(modeloInicialPrefab, transform.position, Quaternion.identity, transform);
-            animator = instanciaActual.GetComponent<Animator>(); // Obtener el Animator del modelo instanciado
+            // Asegúrate de obtener el Animator del modelo instanciado
+            animator = instanciaActual.GetComponentInChildren<Animator>();
         }
 
-        // Iniciar animación de caminar
         if (animator != null)
         {
             animator.SetBool("IsWalking", true);
@@ -60,14 +59,13 @@ public class EnemyFollower : Enemy
 
     private void Update()
     {
-        if (waypoints == null || currentIndex >= waypoints.Count || esperandoCambio)
+        if (isDead || waypoints == null || currentIndex >= waypoints.Count || esperandoCambio)
             return;
 
         Transform target = waypoints[currentIndex];
         Vector3 direction = (target.position - transform.position).normalized;
         transform.position += direction * (Speed * Time.deltaTime);
 
-        // Rotar hacia la dirección del movimiento
         if (direction != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(direction);
@@ -75,13 +73,11 @@ public class EnemyFollower : Enemy
 
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
-            // ¿Llegó al waypoint de cambio?
             if (target == waypointDeCambio)
             {
                 StartCoroutine(CambiarModelo());
             }
 
-            // ¿Llegó al waypoint de ataque?
             if (target == waypointDeAtaque && !haLlegadoAlAtaque)
             {
                 haLlegadoAlAtaque = true;
@@ -96,9 +92,6 @@ public class EnemyFollower : Enemy
     {
         esperandoCambio = true;
 
-        Debug.Log("[EnemyFollower] Iniciando evolución...");
-
-        // Detener animación de caminar
         if (animator != null)
         {
             animator.SetBool("IsWalking", false);
@@ -151,15 +144,12 @@ public class EnemyFollower : Enemy
         if (modeloEvolucionadoPrefab != null)
         {
             instanciaActual = Instantiate(modeloEvolucionadoPrefab, transform.position, Quaternion.identity, transform);
-            animator = instanciaActual.GetComponent<Animator>(); // Obtener el Animator del nuevo modelo
+            animator = instanciaActual.GetComponentInChildren<Animator>();
 
-            // Continuar caminando si no ha llegado al punto de ataque
             if (!haLlegadoAlAtaque && animator != null)
             {
                 animator.SetBool("IsWalking", true);
             }
-
-            Debug.Log("[EnemyFollower] Evolución completada, nuevo modelo activo.");
         }
 
         esperandoCambio = false;
@@ -167,33 +157,52 @@ public class EnemyFollower : Enemy
 
     IEnumerator IniciarAtaque()
     {
-        // Detener el movimiento
         SetVelocidad(0f);
 
         if (animator != null)
         {
-            // Detener animación de caminar y comenzar ataque
             animator.SetBool("IsWalking", false);
             animator.SetTrigger("Attack");
 
-            // Esperar a que termine la animación de ataque
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
-            // Aquí puedes poner lógica de daño al jugador
-            Debug.Log("Enemigo atacando al jugador!");
-
-            // Opcional: repetir el ataque
-            while (true)
+            while (!isDead)
             {
-                yield return new WaitForSeconds(2f); // Esperar 2 segundos entre ataques
+                yield return new WaitForSeconds(2f);
                 animator.SetTrigger("Attack");
-                // Aplicar daño al jugador aquí
+                // Lógica de daño al jugador aquí
             }
         }
     }
+
+    // Cambiado a override para reemplazar el TakeDamage de Enemy
+    public override void TakeDamage(float amount)
+    {
+        if (isDead) return;
+
+        base.TakeDamage(amount);
+
+        if (_lifePoints <= 0f)
+        {
+            StopAllCoroutines();
+            esperandoCambio = true;
+            SetVelocidad(0f);
+        }
+    }
+
+    // Cambiado a override para reemplazar el Morir de Enemy
+    protected override void Morir()
+    {
+        base.Morir();
+
+        if (deathParticles != null)
+        {
+            Instantiate(deathParticles, transform.position, Quaternion.identity);
+        }
+
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        }
+    }
 }
-
-
-
-
-

@@ -515,6 +515,97 @@ Transform:
   m_Children: []
   m_Father: {fileID: 212945136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &470952433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8653719598885068355, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_Name
+      value: Perro_Nahual_Unido
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.6756165
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16755056
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 470952435}
+  m_SourcePrefab: {fileID: 4843985084834002234, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+--- !u!1 &470952434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 2ca5e88022cffc94eb34653b7ec97b01, type: 3}
+  m_PrefabInstance: {fileID: 470952433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &470952435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470952434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcf02f391da63249b4907348a6e7e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifePoints: 100
+  _speed: 2
+  _damage: 10
+  reward: 10
+  animator: {fileID: 0}
+  path: {fileID: 0}
+  waypointDeCambio: {fileID: 0}
+  waypointDeAtaque: {fileID: 0}
+  modeloInicialPrefab: {fileID: 0}
+  modeloEvolucionadoPrefab: {fileID: 0}
+  tiempoDeEvolucion: 1.5
+  materialBrillante: {fileID: 0}
+  deathParticles: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!1 &552849000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,6 +2496,7 @@ MonoBehaviour:
   _speed: 2
   _damage: 10
   reward: 10
+  animator: {fileID: 0}
   path: {fileID: 212945135}
   waypointDeCambio: {fileID: 570657099}
   waypointDeAtaque: {fileID: 8548319241151322065, guid: f3f78859b1246a94aaf8c0884715c380, type: 3}
@@ -2412,7 +2504,8 @@ MonoBehaviour:
   modeloEvolucionadoPrefab: {fileID: 3285745573321998162, guid: 52f2c295e0a884d46b976b3e9179f588, type: 3}
   tiempoDeEvolucion: 1.5
   materialBrillante: {fileID: -876546973899608171, guid: 8412d704ace05ea4cbe6ff96ad2c36ca, type: 3}
-  animator: {fileID: 0}
+  deathParticles: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!4 &2028280684
 Transform:
   m_ObjectHideFlags: 0
@@ -2614,3 +2707,4 @@ SceneRoots:
   - {fileID: 1328575081}
   - {fileID: 1877699782}
   - {fileID: 768577183}
+  - {fileID: 470952433}
