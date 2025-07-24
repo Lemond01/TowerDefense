@@ -2535,7 +2535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997b64c52e8fea346b6fb1f3eebff6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: TestGame
+  gameSceneName: Demo
   creditsSceneName: Credits
   loadingSceneName: LoadingScene
   mainMenuSceneName: MainMenu
