@@ -1515,7 +1515,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 1718923154}
   loadingBar: {fileID: 349758498}
   loadingText: {fileID: 321833963}
-  sceneToLoad: TestGame
+  sceneToLoad: Demo
   fakeLoadTime: 4
 --- !u!1 &886188585
 GameObject:
