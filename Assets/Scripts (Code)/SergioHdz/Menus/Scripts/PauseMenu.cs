@@ -52,7 +52,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void ResumeGame()
+    public void ResumeGame(bool keepCursorVisible = false)
     {
         Debug.Log("[PauseMenu] Reanudando juego");
         Time.timeScale = 1f;
@@ -61,8 +61,16 @@ public class PauseMenu : MonoBehaviour
         if (pauseUI != null)
             pauseUI.SetActive(false);
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (keepCursorVisible)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
         if (allAudioSources != null)
         {
@@ -72,6 +80,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
 
     public void LoadMainMenu()
     {
