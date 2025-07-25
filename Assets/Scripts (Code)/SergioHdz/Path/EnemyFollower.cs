@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class EnemyFollower : Enemy
 {
+    private VegaCore _baseCore;
+    
     [Header("Path Settings")]
     public Path path;
     public Transform waypointDeCambio;
@@ -154,6 +156,14 @@ public class EnemyFollower : Enemy
 
         esperandoCambio = false;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Vega"))
+        {
+            _baseCore = other.GetComponent<VegaCore>();
+        }
+    }
+
 
     IEnumerator IniciarAtaque()
     {
@@ -168,9 +178,12 @@ public class EnemyFollower : Enemy
 
             while (!isDead)
             {
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(5f);
                 animator.SetTrigger("Attack");
-                // Lógica de daño al jugador aquí
+                if (_baseCore != null)
+                {
+                    _baseCore.SendMessage("TakeDamage", _damage, SendMessageOptions.DontRequireReceiver);
+                }
             }
         }
     }

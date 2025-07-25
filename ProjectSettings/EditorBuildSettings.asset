@@ -18,14 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Demo.unity
     guid: 4028650241100464693bc17b38c8f64e
   - enabled: 1
-    path: Assets/Scripts (Code)/SergioHdz/Scenes/GameScene.unity
-    guid: b61e055efba3d0d4da43b412db3f17de
+    path: Assets/Scripts (Code)/SergioHdz/Scenes/GameOver.unity
+    guid: 163a26222213784418624857511188f4
+  - enabled: 1
+    path: Assets/Scripts (Code)/SergioHdz/Scenes/Win.unity
+    guid: 6c0cbf4cd08fac844a5f9b94b7fb2e67
   - enabled: 1
     path: Assets/Scripts (Code)/SergioHdz/Scenes/Credits.unity
     guid: 30fddac87bc713449bb735ac975dbbac
-  - enabled: 1
-    path: Assets/Scripts (Code)/SergioHdz/Scenes/TestGame.unity
-    guid: d2c47daa8248d1447bdeb1ef9698e278
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
