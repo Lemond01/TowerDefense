@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public float _damage = 10f;
 
     [Header("Recompensa al morir")]
-    [SerializeField] protected int reward = 10;
+    [SerializeField] protected int reward = 100;
 
     protected bool isDead = false;
     public Animator animator;
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
     public float LifePoints => _lifePoints;
     public float Speed => _speed;
     public float Damage => _damage;
+    
+    public event Action<Enemy> OnDeath;
 
     // Cambiado a virtual para permitir override
     protected virtual void Start()
