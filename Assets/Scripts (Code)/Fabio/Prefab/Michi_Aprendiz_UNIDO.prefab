@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9086059949344835725, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
       propertyPath: m_Name
       value: Michi_Aprendiz_UNIDO
@@ -17,12 +21,24 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -42.09516
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -6.2376585
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55,6 +71,38 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4936120981197342006, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -4535120151243029773, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -3919195106213062888, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -325095215176912499, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605466112912846659, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743348839593327371, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916103425808398024, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919898117237711667, guid: 0da9055eddf07d244ae472edbf0ad165, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

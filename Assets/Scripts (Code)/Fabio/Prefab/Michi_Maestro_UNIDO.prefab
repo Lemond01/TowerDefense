@@ -17,12 +17,24 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: a7166575038d524419aaff8a2fbef159, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.758497
+      value: -42.577507
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: a7166575038d524419aaff8a2fbef159, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.3663154
+      value: -6.066402
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: a7166575038d524419aaff8a2fbef159, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56,6 +68,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5304320214407595141, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -4948375410652727730, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 233085450002412673, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 438622690881101775, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943260302857054993, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067290433650898944, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916103425808398024, guid: a7166575038d524419aaff8a2fbef159, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcf02f391da63249b4907348a6e7e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifePoints: 100
+  _lifePoints: 120
   _speed: 4
   _damage: 20
   reward: 10
