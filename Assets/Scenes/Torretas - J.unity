@@ -493,6 +493,7 @@ MonoBehaviour:
   _speed: 2
   _damage: 10
   reward: 10
+  animator: {fileID: 0}
 --- !u!1001 &346950778139450972
 PrefabInstance:
   m_ObjectHideFlags: 0
