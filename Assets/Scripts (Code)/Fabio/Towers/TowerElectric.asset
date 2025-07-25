@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TowerElectric
   m_EditorClassIdentifier: 
   towerName: TowerElectric
-  towerCost: 700
+  towerCost: 500
   icon: {fileID: -3757586537886536452, guid: c1046d102457dd74cad906b5184ac298, type: 3}
   towerPrefab: {fileID: 7144475302600614596, guid: 7b7220376182da344a5e649abbce42cf, type: 3}
   placementMaterial: {fileID: 0}
