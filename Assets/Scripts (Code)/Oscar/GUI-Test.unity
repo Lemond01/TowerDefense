@@ -994,10 +994,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveSlider: {fileID: 321820415}
   waveText: {fileID: 2005128753}
-  totalWaves: 3
-  baseEnemies: 5
+  enemiesPerWave: 050000000a00000003000000020000000f000000
   spawnInterval: 1
-  enemyPrefab: {fileID: 0}
+  enemyPrefabs:
+  - {fileID: 8165475431292555724, guid: f72a2e640997ace4eb294dc0488aa989, type: 3}
+  - {fileID: 2586694999657373758, guid: 01025e87b45947b408b01840d1db8649, type: 3}
+  - {fileID: 6894082740141948995, guid: 0f7bb0ff561f997469fd9dfef9ece7fc, type: 3}
+  - {fileID: 5204688280024469401, guid: eaf07085f93321d4ba9011dd85132686, type: 3}
+  - {fileID: 6155370546807449897, guid: 416dc3032e7a6054c9dd968771ca4059, type: 3}
   spawnPoints:
   - {fileID: 773694863}
   - {fileID: 239314635}
@@ -1544,7 +1548,7 @@ Transform:
   m_GameObject: {fileID: 1561791106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

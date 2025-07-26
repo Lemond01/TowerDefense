@@ -3157,31 +3157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveSlider: {fileID: 153516655}
   waveText: {fileID: 1584317408}
-  totalWaves: 7
-  enemiesMultiplier:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  enemiesPerWave: 05000000060000000700000008000000090000000a0000000f000000
   spawnInterval: 2
   enemyPrefabs:
   - {fileID: 8165475431292555724, guid: f72a2e640997ace4eb294dc0488aa989, type: 3}

@@ -10,25 +10,32 @@ public class WaveManager : MonoBehaviour
     public Slider   waveSlider;
     public TMP_Text waveText;
 
-    [Header("Configuración de Oleadas")]
-    public int totalWaves = 5;                  // Oleadas totales
-    public AnimationCurve enemiesMultiplier;     // Multiplicador por wave (x = wave/totalWaves, y = factor)
-    public float spawnInterval = 1f;            // Tiempo entre spawns
+    [Header("Oleadas")]
+    public List<int> enemiesPerWave = new List<int>();
 
     [Header("Spawn Settings")]
-    public List<GameObject> enemyPrefabs;       // Hasta 5 prefabs distintos
-    public Transform[]      spawnPoints;        // Múltiples spawns
+    public float          spawnInterval = 1f;
+    public List<GameObject> enemyPrefabs;
+    public Transform[]      spawnPoints;
 
     private int currentWave      = 0;
     private int enemiesRemaining = 0;
 
     void Start()
     {
-        if (enemyPrefabs == null || enemyPrefabs.Count == 0 ||
-            spawnPoints == null || spawnPoints.Length == 0 ||
-            waveSlider == null || waveText == null)
+        // Validaciones
+        if (enemiesPerWave == null || enemiesPerWave.Count == 0)
+        {
+            Debug.LogError("[WaveManager] No hay configuración de oleadas.");
+            enabled = false;
+            return;
+        }
+        if (waveSlider == null || waveText == null ||
+            enemyPrefabs == null || enemyPrefabs.Count == 0 ||
+            spawnPoints == null || spawnPoints.Length == 0)
         {
             Debug.LogError("[WaveManager] Faltan referencias en el Inspector.");
+            enabled = false;
             return;
         }
 
@@ -37,28 +44,22 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator RunWaves()
     {
-        while (currentWave < totalWaves)
+        for (currentWave = 1; currentWave <= enemiesPerWave.Count; currentWave++)
         {
-            currentWave++;
+            enemiesRemaining = enemiesPerWave[currentWave - 1];
 
-            // Calcula cuántos enemigos en esta oleada:
-            // base = totalWaves * factor en curva (0→1)
-            float factor = enemiesMultiplier.Evaluate((float)(currentWave - 1) / (totalWaves - 1));
-            int   toSpawn = Mathf.CeilToInt(totalWaves * factor);
+            waveSlider.maxValue = enemiesRemaining;
+            waveSlider.value    = enemiesRemaining;
+            waveText.text       = $"Oleada {currentWave}/{enemiesPerWave.Count}";
 
-            enemiesRemaining = toSpawn;
-            waveSlider.maxValue = toSpawn;
-            waveSlider.value    = toSpawn;
-            waveText.text       = $"Oleada {currentWave}/{totalWaves}";
-
-            // Spawnea escalonado
-            for (int i = 0; i < toSpawn; i++)
+            // Spawneo escalonado
+            for (int i = 0; i < enemiesRemaining; i++)
             {
                 SpawnRandomEnemy();
                 yield return new WaitForSeconds(spawnInterval);
             }
 
-            // Espera hasta que todos los enemigos de esta oleada hayan muerto
+            // Espera hasta que todos los enemigos mueran
             while (enemiesRemaining > 0)
             {
                 waveSlider.value = enemiesRemaining;
@@ -71,19 +72,17 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnRandomEnemy()
     {
-        // Elige prefab y punto al azar
+        // Elegir un prefab y punto de spawn al azar
         var prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
         var sp     = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        var go     = Instantiate(prefab, sp.position, sp.rotation);
 
-        var go = Instantiate(prefab, sp.position, sp.rotation);
-        go.tag = "Enemy";
-
-        // Suscríbete a su evento de muerte
-        var e = go.GetComponent<Enemy>();
-        if (e != null)
-            e.OnDeath += HandleEnemyDeath;
-        else
-            Debug.LogWarning($"[WaveManager] El prefab {prefab.name} no tiene componente Enemy.");
+        // Suscripción al evento de muerte
+        var enemy = go.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.OnDeath += HandleEnemyDeath;
+        }
     }
 
     private void HandleEnemyDeath(Enemy dead)
@@ -98,3 +97,4 @@ public class WaveManager : MonoBehaviour
         
     }
 }
+
