@@ -479,7 +479,7 @@ MonoBehaviour:
   _lifePoints: 200
   _speed: 1
   _damage: 80
-  reward: 400
+  reward: 300
   animator: {fileID: -949192259140091575}
   path: {fileID: 5213384091537784359, guid: c7ecab3f70a13154ea923446e0adc21c, type: 3}
   waypointDeCambio: {fileID: 5087044287156623135, guid: bfefd470396515e49b9ed002a5d4d38d, type: 3}

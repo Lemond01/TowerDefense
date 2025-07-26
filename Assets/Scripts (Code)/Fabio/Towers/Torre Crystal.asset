@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Torre Crystal
   m_EditorClassIdentifier: 
   towerName: Torre Crystal
-  towerCost: 400
+  towerCost: 500
   icon: {fileID: 2526940678033239174, guid: dadb80e34798db942b54cbb830114c4d, type: 3}
   towerPrefab: {fileID: 3791033889371590188, guid: 9fbf84eb8e6f2f94abce3ec581e14af9, type: 3}
   placementMaterial: {fileID: 0}
