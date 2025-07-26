@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class EnemyFollower : Enemy
 {
-    private VegaCore _baseCore;
-    
     [Header("Path Settings")]
     public Path path;
     public Transform waypointDeCambio;
@@ -25,16 +23,17 @@ public class EnemyFollower : Enemy
     public ParticleSystem deathParticles;
     public AudioClip deathSound;
 
+    [Header("Manual Evolution")]
+    public bool forzarEvolucion = false;
+
     private List<Transform> waypoints;
     private int currentIndex = 0;
     private bool esperandoCambio = false;
     private bool haLlegadoAlAtaque = false;
     private GameObject instanciaActual;
 
-    // Cambiado a override para reemplazar el Start de Enemy
     protected override void Start()
     {
-        // Primero llama al Start de la clase base
         base.Start();
 
         if (path == null || waypointDeCambio == null)
@@ -62,6 +61,13 @@ public class EnemyFollower : Enemy
     {
         if (isDead || waypoints == null || currentIndex >= waypoints.Count || esperandoCambio)
             return;
+
+        if (forzarEvolucion)
+        {
+            forzarEvolucion = false;
+            StartCoroutine(CambiarModelo());
+            return;
+        }
 
         Transform target = waypoints[currentIndex];
         Vector3 direction = (target.position - transform.position).normalized;
@@ -155,14 +161,6 @@ public class EnemyFollower : Enemy
 
         esperandoCambio = false;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Vega"))
-        {
-            _baseCore = other.GetComponent<VegaCore>();
-        }
-    }
-
 
     IEnumerator IniciarAtaque()
     {
@@ -177,17 +175,12 @@ public class EnemyFollower : Enemy
 
             while (!isDead)
             {
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(2f);
                 animator.SetTrigger("Attack");
-                if (_baseCore != null)
-                {
-                    _baseCore.SendMessage("TakeDamage", _damage, SendMessageOptions.DontRequireReceiver);
-                }
             }
         }
     }
 
-    // Cambiado a override para reemplazar el TakeDamage de Enemy
     public override void TakeDamage(float amount)
     {
         if (isDead) return;
@@ -202,7 +195,6 @@ public class EnemyFollower : Enemy
         }
     }
 
-    // Cambiado a override para reemplazar el Morir de Enemy
     protected override void Morir()
     {
         base.Morir();

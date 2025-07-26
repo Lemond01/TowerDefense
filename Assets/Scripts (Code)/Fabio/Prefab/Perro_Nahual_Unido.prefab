@@ -932,19 +932,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifePoints: 50
-  _speed: 6
+  _speed: 5
   _damage: 80
-  reward: 10
+  reward: 500
   animator: {fileID: -4925931969923178540}
-  path: {fileID: 7480831354593253380, guid: d68c3d1753fd8da4da71c2f294462b88, type: 3}
-  waypointDeCambio: {fileID: 398042505142307161, guid: cbf028132f9c5474abaf3e2c0ae05ea4, type: 3}
-  waypointDeAtaque: {fileID: 8548319241151322065, guid: f3f78859b1246a94aaf8c0884715c380, type: 3}
+  path: {fileID: 8824417794571265418, guid: 88520471c56934a488e3a63f89d77be2, type: 3}
+  waypointDeCambio: {fileID: 5087044287156623135, guid: bfefd470396515e49b9ed002a5d4d38d, type: 3}
+  waypointDeAtaque: {fileID: 5087044287156623135, guid: bfefd470396515e49b9ed002a5d4d38d, type: 3}
   modeloInicialPrefab: {fileID: 0}
   modeloEvolucionadoPrefab: {fileID: 0}
   tiempoDeEvolucion: 1.5
-  materialBrillante: {fileID: 0}
+  materialBrillante: {fileID: 2100000, guid: 42ce90b4aa65940408a6fd60e24f62db, type: 2}
   deathParticles: {fileID: 0}
   deathSound: {fileID: 0}
+  forzarEvolucion: 0
 --- !u!95 &-4925931969923178540
 Animator:
   serializedVersion: 7

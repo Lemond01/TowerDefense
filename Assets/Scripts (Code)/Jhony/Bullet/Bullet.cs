@@ -50,12 +50,15 @@ public class Bullet : MonoBehaviour
     
     protected virtual void HitTarget()
     {
-        if (Target != null)
+        Collider[] hits = Physics.OverlapSphere(transform.position, 0.2f);
+
+        foreach (var hit in hits)
         {
-            Enemy enemy = Target.GetComponent<Enemy>();
+            Enemy enemy = hit.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                break;
             }
         }
 

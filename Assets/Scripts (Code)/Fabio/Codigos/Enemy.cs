@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
     public float LifePoints => _lifePoints;
     public float Speed => _speed;
     public float Damage => _damage;
-    
     public event Action<Enemy> OnDeath;
 
     // Cambiado a virtual para permitir override

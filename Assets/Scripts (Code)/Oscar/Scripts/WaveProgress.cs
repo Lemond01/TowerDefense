@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -93,6 +94,7 @@ public class WaveManager : MonoBehaviour
 
     private void EndAllWaves()
     {
+        SceneManager.LoadScene("Win");
         Debug.Log("¡Has completado todas las oleadas!");
         
     }
