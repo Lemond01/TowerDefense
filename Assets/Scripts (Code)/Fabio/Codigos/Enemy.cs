@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
     protected virtual void Morir()
     {
         isDead = true;
+        
+        OnDeath?.Invoke(this);
 
         if (animator != null)
         {
