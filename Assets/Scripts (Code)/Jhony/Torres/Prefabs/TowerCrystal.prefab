@@ -304,8 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e3e6ff64d64d84ca20f36341959be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 8
-  fireRate: 0.15
+  range: 9
+  fireRate: 0.2
   turretPivot: {fileID: 6013603228744253967}
   firePoint: {fileID: 3749761243991618620}
   enemyTag: Enemy

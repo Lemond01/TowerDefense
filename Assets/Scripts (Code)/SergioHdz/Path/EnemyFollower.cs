@@ -49,7 +49,6 @@ public class EnemyFollower : Enemy
         if (modeloInicialPrefab != null)
         {
             instanciaActual = Instantiate(modeloInicialPrefab, transform.position, Quaternion.identity, transform);
-            // Asegúrate de obtener el Animator del modelo instanciado
             animator = instanciaActual.GetComponentInChildren<Animator>();
         }
 

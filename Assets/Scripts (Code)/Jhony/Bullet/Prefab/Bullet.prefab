@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 50
+  damage: 60
   maxRange: 10
 --- !u!198 &1947178593635823781
 ParticleSystem:

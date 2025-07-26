@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e3e6ff64d64d84ca20f36341959be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 5
   fireRate: 1
   turretPivot: {fileID: 2204988254860214984}
   firePoint: {fileID: 3054583748040128514}

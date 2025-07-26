@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  damage: 30
+  damage: 50
   maxRange: 15
   poisonDuration: 8
   poisonTickDamage: 1.5

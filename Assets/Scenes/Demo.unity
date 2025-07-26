@@ -2287,7 +2287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8981872007565959522, guid: fb94552a60f44ba4894f76a0c53fecd6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8995468208180423771, guid: fb94552a60f44ba4894f76a0c53fecd6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3157,7 +3157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveSlider: {fileID: 153516655}
   waveText: {fileID: 1584317408}
-  totalWaves: 5
+  totalWaves: 7
   enemiesMultiplier:
     serializedVersion: 2
     m_Curve:
@@ -3182,13 +3182,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  spawnInterval: 1
+  spawnInterval: 2
   enemyPrefabs:
   - {fileID: 8165475431292555724, guid: f72a2e640997ace4eb294dc0488aa989, type: 3}
   - {fileID: 2586694999657373758, guid: 01025e87b45947b408b01840d1db8649, type: 3}
   - {fileID: 6894082740141948995, guid: 0f7bb0ff561f997469fd9dfef9ece7fc, type: 3}
   - {fileID: 5204688280024469401, guid: eaf07085f93321d4ba9011dd85132686, type: 3}
-  - {fileID: 6155370546807449897, guid: 416dc3032e7a6054c9dd968771ca4059, type: 3}
   spawnPoints:
   - {fileID: 1154647800}
   - {fileID: 1442257553}
